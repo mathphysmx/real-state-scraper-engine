@@ -3,7 +3,26 @@ import pandas as pd
 from datetime import datetime, timezone, tzinfo
 import pytz
 import sqlalchemy
+from pydantic_settings import BaseSettings
+from pydantic import SecretStr
 from utils import dbconnect
+
+class Settings(BaseSettings):
+    rdbms_server_name: SecretStr
+    rdbms_server_port: SecretStr
+    rdbms_username: SecretStr
+    rdbms_password: SecretStr
+    rdbms_database_name: SecretStr
+
+settings = Settings()
+
+database_credentials={
+    'mercadolibre_scraper':
+        {'host': settings.rdbms_server_name,
+        'username': settings.rdbms_username,
+        'password': settings.rdbms_password,
+        'port': settings.rdbms_server_port}
+    }
 
 # https://stackoverflow.com/questions/10997577/python-timezone-conversion
 timestamp = datetime.now(tz = timezone.utc)
@@ -50,7 +69,7 @@ df['publication_check_timestamp_utc'] = timestamp
 
 
 engine = dbconnect(
-   SQLdatabasename = 'mercadolibre-scraper-database',
+   SQLdatabasename = settings.rdbms_database_name,
    database = database_credentials['mercadolibre_scraper'],
    dialect_driver = 'mssql+pyodbc',
    query = {

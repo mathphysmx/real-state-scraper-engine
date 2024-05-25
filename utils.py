@@ -64,6 +64,10 @@ def dbconnect(
     # https://community.snowflake.com/s/article/Password-with-special-character-may-cause-authentication-failure-at-SQLAlchemy
     # https://stackoverflow.com/questions/75309237/read-sql-query-throws-optionengine-object-has-no-attribute-execute-with
 
+    # todo: attrs package?
+    database = {key:value.get_secret_value() for key,value in database.items()}
+    SQLdatabasename = SQLdatabasename.get_secret_value()
+
     try: #
         url_object = URL.create( # https://docs.sqlalchemy.org/en/20/core/engines.html#creating-urls-programmatically
             dialect_driver,
