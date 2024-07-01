@@ -1,9 +1,22 @@
 
 https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
+poetry run real-state-scraper-engine
+
+pip install --user --upgrade nox
+pip install --user --upgrade nox-poetry
+
 poetry add --group dev pytest coverage[toml] pytest-cov pytest-mock flake8 mypy ipykernel
 
 poetry add pydantic_settings pydantic sqlalchemy pandas requests
+
+
+python3 -m pip install nox
+pip install --user --upgrade nox
+
+nox
+nox -r
+
 
 # Linting
 

@@ -5,6 +5,9 @@ description = "Fetchs real state data of Mexico from Merdaco Libre site"
 authors = ["Francisco Mendoza <mentofran@gmail.com>"]
 readme = "README.md"
 
+# [tool.poetry.scripts]
+# real-state-scraper-engine = "real_state_scraper_engine.main"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 pydantic-settings = "^2.3.4"
@@ -26,3 +29,15 @@ ipykernel = "^6.29.5"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.paths]
+source = ["*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["real_state_scraper_engine"]
+
+[tool.coverage.report]
+show_missing = true # display of line numbers for missing coverage
+# fail_under = 100 # minimum coverage percentage
+
