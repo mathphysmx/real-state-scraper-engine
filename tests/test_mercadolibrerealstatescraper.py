@@ -1,4 +1,4 @@
-from mercadolibrerealstatescraper import lat_long_zip_available
+from real_state_scraper_engine.mercadolibrerealstatescraper import lat_long_zip_available
 
 def test_lat_long_zip_available():
     target_value = 40.7

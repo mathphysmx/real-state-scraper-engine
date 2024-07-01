@@ -1,6 +1,10 @@
 
 https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
+poetry add --group dev pytest coverage[toml] pytest-cov pytest-mock flake8 mypy ipykernel
+
+poetry add pydantic_settings pydantic sqlalchemy pandas requests
+
 # Linting
 
 https://docs.astral.sh/ruff/

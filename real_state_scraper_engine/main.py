@@ -1,8 +1,8 @@
 from datetime import datetime, timezone
 from pydantic_settings import BaseSettings
 from pydantic import SecretStr
-from real_state_scraper_engine.utils import dbconnect
-from real_state_scraper_engine.mercadolibrerealstatescraper import fetch_mercadolibre_data
+from utils import dbconnect
+from mercadolibrerealstatescraper import fetch_mercadolibre_data
 
 class Settings(BaseSettings):
     rdbms_server_name: SecretStr
