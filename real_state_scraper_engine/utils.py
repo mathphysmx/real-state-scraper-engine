@@ -39,7 +39,7 @@ def dbconnect(
         sql_dql = "SELECT * FROM neomexicana_dash.lista_sucursales"
         query = sqlalchemy.text(sql_dql)
         pd.read_sql_query(query, con = connection)
-        
+
         connection.close()
         engine.dispose()
 
@@ -96,6 +96,5 @@ def dbconnect(
             f":{database['port']}"
             f"/{SQLdatabasename}")
             )
-    
-    return engine
 
+    return engine

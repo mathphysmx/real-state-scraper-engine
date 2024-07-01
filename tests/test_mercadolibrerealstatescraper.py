@@ -6,4 +6,3 @@ def test_lat_long_zip_available():
         x = {'latitude': target_value,
             'longitude': -74.0})
     assert coord == target_value
-

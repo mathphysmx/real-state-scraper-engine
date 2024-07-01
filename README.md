@@ -1,6 +1,8 @@
 
 https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
+pip install --user --upgrade pre-commit
+
 poetry run real-state-scraper-engine
 
 pip install --user --upgrade nox
