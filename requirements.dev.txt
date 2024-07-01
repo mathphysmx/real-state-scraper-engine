@@ -1,4 +1,4 @@
+build
 pytest-cov
 ruff
-build
 twine

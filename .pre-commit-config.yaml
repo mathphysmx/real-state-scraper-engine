@@ -1,8 +1,39 @@
 # .pre-commit-config.yaml
+
+# To use:
+#
+#     pre-commit run --all-files
+#
+# Or:
+#
+#     pre-commit install  # (runs every time you commit in git)
+#
+# To update this file:
+#
+#     pre-commit autoupdate
+#
+# See https://github.com/pre-commit/pre-commit
+
+minimum_pre_commit_version: 2.15.0
+exclude: ^LICENSES/|\.(html|csv|svg)$
+
+# Standard hooks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
+    - id: check-added-large-files
+    - id: check-case-conflict
+    - id: check-docstring-first
+    - id: check-merge-conflict
+    - id: check-symlinks
+    - id: check-xml
+    - id: check-toml
+    - id: check-yaml
+      exclude: ^ci/meta.yaml$
+    - id: debug-statements
+    - id: end-of-file-fixer
+      exclude: \.txt$
+    - id: mixed-line-ending
+    - id: requirements-txt-fixer
+    - id: trailing-whitespace
